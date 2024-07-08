@@ -17,13 +17,21 @@ def detect_pixelation(image_path, threshold=60):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Calculate Laplacian variance
-    lap_var = cv2.Laplacian(gray, cv2.CV_64F).var()
-
+    lap = cv2.Laplacian(gray, cv2.CV_64F)
+    lap_var = lap.var();
+    cv2.imshow('laplacian',lap)
+    k = cv2.waitKey(0)
+    if k == 27:  # Wait for ESC key to exit
+        cv2.destroyAllWindows()
+    elif k == ord('s'):  # Wait for 's' key to save and exit
+        cv2.imwrite('saved_image.png', img)
+        cv2.destroyAllWindows()
+    print(lap_var)
     if lap_var < threshold:
         print("Image is pixelated")
     else:
         print("Image is not pixelated")
 
 # Example usage
-image_path = 'assets/baboon.jpg'
+image_path = 'assets/gorilla.jpeg'
 detect_pixelation(image_path)
