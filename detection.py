@@ -32,6 +32,3 @@ def detect_pixelation(image_path, threshold=60):
     else:
         print("Image is not pixelated")
 
-# Example usage
-image_path = 'assets/gorilla.jpeg'
-detect_pixelation(image_path)

@@ -20,7 +20,7 @@ def correct_pixelation(image_path, output_path, resize_factor=2):
     cv2.imwrite(output_path, resized_image)
 
 # Example usage:
-input_image_path = 'pixelated_image.png'
-output_image_path = 'smoothed_image.png'
+input_image_path = 'assets/Pixelated/monalisa_after.png'
+output_image_path = 'assets/Original'
 correct_pixelation(input_image_path, output_image_path)
 print(f"Pixelated image '{input_image_path}' corrected and saved as '{output_image_path}'.")
